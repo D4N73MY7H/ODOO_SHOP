@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<!--    <data>-->
+
+<!--        <record id="shop_root" >-->
+<!--            <field name="name">AllTech</field>-->
+<!--            <field name="sequence">0</field>-->
+<!--        </record>-->
+
+<!--        <record id="employee_master">-->
+<!--            <field name="name">Employee Details</field>-->
+<!--            <field name="parent_id" ref="shop_root"/>-->
+<!--            <field name="sequence">0</field>-->
+<!--        </record>-->
+
+<!--        <record id="menu_employee">-->
+<!--            <field name="name">Employee</field>-->
+<!--            <field name="parent_id" ref="shop_root"/>-->
+<!--            <field name="sequence">0</field>-->
+<!--        </record>-->
+
+<!--    </data>-->
+
+    <data>
+
+        <menuitem id="menu_all_tech_root" name="All Tech" sequence="10">
+
+            <menuitem  id="menu_hr" name="Human Resources" sequence="10">
+                <menuitem id="menu_departments" name="Departments"  sequence="10"/>
+                <menuitem id="menu_employees" name="Employees"  sequence="20"/>
+            </menuitem>
+
+            <menuitem id="menu_sales" name="Sales" sequence="20">
+                <menuitem id="menu_customers" name="Customers"  sequence="10"/>
+                <menuitem id="menu_customer_types" name="CustomerPay Types"  sequence="20"/>
+                <menuitem id="menu_invoices" name="Invoices"  sequence="30"/>
+                <menuitem id="menu_sale_items" name="Sale Items" sequence="40"/>
+                <menuitem id="menu_statuses" name="Statuses"  sequence="50"/>
+                <menuitem id="menu_pay_types" name="Pay Types"  sequence="60"/>
+                <menuitem id="menu_pay_methods" name="Pay Methods"  sequence="70"/>
+            </menuitem>
+
+            <menuitem id="menu_products" name="Products" sequence="30">
+                <menuitem id="menu_categories" name="Categories"  sequence="10"/>
+                <menuitem id="menu_products_sub" name="Products"  sequence="20"/>
+                <menuitem id="menu_inventories" name="Inventories"  sequence="30"/>
+                <menuitem id="menu_suppliers" name="Suppliers"  sequence="40"/>
+            </menuitem>
+
+        </menuitem>
+
+    </data>
+
+</odoo>
