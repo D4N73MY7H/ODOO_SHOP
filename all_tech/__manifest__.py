@@ -8,6 +8,7 @@
     'category': 'SHOP',
     'depends': ['base'],
     'data': [
+        'views/depts.xml',
         'views/employee.xml',
         'views/menu.xml'
     ],

@@ -6,7 +6,7 @@
         <menuitem id="menu_all_tech_root" name="All Tech" sequence="10">
 
             <menuitem  id="menu_hr" name="Human Resources" sequence="10">
-                <menuitem id="menu_departments" name="Departments"  sequence="10"/>
+                <menuitem id="menu_departments" name="Departments" action="action_allTech_depts" sequence="10"/>
                 <menuitem id="menu_employees" name="Employees" action="action_allTech_employee" sequence="20"/>
             </menuitem>
 
@@ -17,11 +17,11 @@
                 <menuitem id="menu_sale_items" name="Sale Items" sequence="40"/>
                 <menuitem id="menu_statuses" name="Statuses"  sequence="50"/>
                 <menuitem id="menu_pay_types" name="Pay Types"  sequence="60"/>
-                <menuitem id="menu_categories" name="Categories"  sequence="10"/>
                 <menuitem id="menu_pay_methods" name="Pay Methods"  sequence="70"/>
             </menuitem>
 
             <menuitem id="menu_products" name="Products" sequence="30">
+                <menuitem id="menu_categories" name="Categories"  sequence="10"/>
                 <menuitem id="menu_products_sub" name="Products"  sequence="20"/>
                 <menuitem id="menu_inventories" name="Inventories"  sequence="30"/>
                 <menuitem id="menu_suppliers" name="Suppliers"  sequence="40"/>
