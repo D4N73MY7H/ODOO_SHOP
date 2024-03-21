@@ -1,14 +1,15 @@
 {
-    'name' : 'All Tech',
-    'version' : '1.0',
+    'name': 'All Tech',
+    'version': '1.0',
     'summary': 'All Tech Shop',
     'author': 'all_tech',
     'sequence': -100,
     'description': """All Tech Module""",
     'category': 'SHOP',
-    'depends': [],
+    'depends': ['base'],
     'data': [
-        'views\menu.xml'
+        'views/employee.xml',
+        'views/menu.xml'
     ],
     'demo': [],
     'installable': True,
