@@ -6,4 +6,5 @@ class Department(models.Model):
 
     name = fields.Char(string='Name', required=True)
     description = fields.Char(string='Description')
+    employee_ids = fields.One2many(comodel_name='all_tech.employee', inverse_name='department', string='Employees')
 
