@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="employee_view_form" model="ir.ui.view">
+            <field name="name">employee_view_form</field>
+            <field name="model">all_tech.employee</field>
+            <field name="arch" type="xml">
+                <form string="employee_form">
+<!--                    <header>-->
+<!--                        <button name="set_default_department" type="object" string="Set default department"/>-->
+<!--                    </header>-->
+                    <sheet>
+                        <h2 class="w-25 p-3 bg-info">Employee</h2>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="last_name"/>
+                                <field name="department"/>
+                                <field name="phone"/>
+                                <field name="email"/>
+                            </group>
+                        </group>
+
+                        <field name="image" filename="img_name" class="oe_avatar" widget="image"/>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="employee_view_tree" model="ir.ui.view">
+            <field name="name">employee_view_tree</field>
+            <field name="model">all_tech.employee</field>
+            <field name="arch" type="xml">
+                <tree string="employee_form">
+                    <field name="name"/>
+                    <field name="last_name"/>
+                    <field name="department"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="employee_view_search" model="ir.ui.view">
+            <field name="name">employee_view_tree</field>
+            <field name="model">all_tech.employee</field>
+            <field name="arch" type="xml">
+                <search string="Search Employee">
+                    <field name="name" string="Name" filter_domain="[('name', 'ilike', self)]"/>
+                    <field name="last_name" string="Last Name" filter_domain="[('last_name', 'ilike', self)]"/>
+                    <field name="department" string="Department" filter_domain="[('department', 'ilike', self)]"/>
+                    <field name="phone" string="Phone" filter_domain="[('phone', 'ilike', self)]"/>
+                    <field name="email" string="Email" filter_domain="[('email', 'ilike', self)]"/>
+                </search>
+                <group expand="0" string="Group By">
+                    <filter string="Department" name="group_by_department" context="{'group_by': 'department'}"/>
+                </group>
+            </field>
+        </record>
+
+
+
+        <record id="action_allTech_employee" model="ir.actions.act_window">
+            <field name="name">Employees</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">all_tech.employee</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create Employee
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

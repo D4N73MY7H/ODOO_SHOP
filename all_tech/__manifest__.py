@@ -8,8 +8,8 @@
     'category': 'SHOP',
     'depends': ['base'],
     'data': [
-        'views/depts.xml',
-        'views/employee.xml',
+        'views/department_view.xml',
+        'views/employee_view.xml',
         'views/menu.xml'
     ],
     'demo': [],

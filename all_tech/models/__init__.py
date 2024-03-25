@@ -1,1 +1,1 @@
-from . import employee, department
+from . import employee, department, customer, category, supplier, product, type, status

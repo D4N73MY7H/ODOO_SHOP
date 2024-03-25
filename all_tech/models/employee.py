@@ -1,56 +1,64 @@
 from odoo import models, fields, api
+import re
 from odoo.exceptions import ValidationError
+
 
 class Employee(models.Model):
     _name = 'all_tech.employee'
     _description = 'Employee'
 
     name = fields.Char(string='Name', required=True)
-    email = fields.Char(string='email')
-    phone = fields.Char(string='Phone Number', required=True, default='121541541')
+    last_name = fields.Char(string='Last Name', required=True)
+    email = fields.Char(string='E-mail')
+    phone = fields.Char(string='Phone Number', required=True)
     department = fields.Many2one('all_tech.department', string='Department', required=True)
-    email_len = fields.Integer(string='Email Length', compute='_compute_email_len', store=True)
+    image = fields.Binary(string='Image', attachment=True)
 
     _sql_constraints = [
-        ('name', 'unique (name)', 'The name code must be unique!'),
         ('phone', 'unique (phone)', 'The phone code must be unique!'),
     ]
 
     @api.constrains('phone')
     def _check_phone(self):
         for record in self:
-            if len(record.phone) > 10:
-                raise ValidationError("Phone number must be less than 10")
+            if len(record.phone) != 11:
+                raise ValidationError("Phone number must be less than 11")
 
-    @api.depends('email')
-    def _compute_email_len(self):
+    @api.constrains('email')
+    def _check_email(self):
         for record in self:
-            record.email_len = len(record.email) if record.email else 0
+            if not re.match(r"^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$", record.email):
+                raise ValidationError("Invalid email format")
 
-    @api.onchange('department')
-    def _onchange_department(self):
-        self.name = self.department.name
+    # @api.depends('email')
+    # def _compute_email_len(self):
+    #     for record in self:
+    #         record.email_len = len(record.email) if record.email else 0
 
-    def set_default_department(self):
-        department = self.env['all_tech.department'].search([('name', 'ilike', 'test')], limit=1)
-        if department.exists():
-            self.department = department.id
-        else:
-            self.department = self.env['all_tech.department'].create({'name': 'test'}).id
+    # @api.onchange('department')
+    # def _onchange_department(self):
+    #     self.name = self.department.department
 
-    @api.model
-    def create(self, values):
-        # Add code here
-        rec = super(Employee, self).create(values)
-
-        return rec
-
-    def write(self, values):
-        # Add code here
-        rec = super(Employee, self).write(values)
-
-        return rec
-
-    def unlink(self):
-        rec = super(Employee, self).unlink()
-        return rec
+    # def set_default_department(self):
+    #     department = self.env['all_tech.department'].search([('department', 'ilike', 'test')], limit=1)
+    #     if department.exists():
+    #         self.department = department.id
+    #     else:
+    #         self.department = self.env['all_tech.department'].create({'department': 'test'}).id
+    #
+    # @api.model
+    # def create(self, values):
+    #     # Add code here
+    #     rec = super(Employee, self).create(values)
+    #
+    #     return rec
+    #
+    # def write(self, values):
+    #     # Add code here
+    #     rec = super(Employee, self).write(values)
+    #
+    #     return rec
+    #
+    # def unlink(self):
+    #     rec = super(Employee, self).unlink()
+    #     return rec
