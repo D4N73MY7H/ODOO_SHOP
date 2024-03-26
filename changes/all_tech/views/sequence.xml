@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="application_sequence_no" model="ir.sequence">
+            <field name="name">All Tech Sequence</field>
+<!--            <field name="company_id" eval="False"/>-->
+            <field name="code">all_tech.invoice.sequence</field>
+            <field name="prefix">AT-%(year)s%(month)s%(day)s-</field>
+            <field name="padding">3</field>
+<!--            <field name="number_next">1</field>-->
+            <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>
