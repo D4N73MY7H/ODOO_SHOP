@@ -10,6 +10,7 @@
             <form string="patient_form">
                 <sheet>
                     <h2 class="w-25 p-3 text-white" style="background-color: #4285F4">Patient</h2>
+                    <field name="image" widget="image"/>
                     <group>
                         <group>
                             <field name="name"/>
@@ -38,7 +39,7 @@
         <field name="name">patient_view_tree</field>
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
-            <tree string="patient_tree">
+            <tree string="patient_tree" sample="1">
                 <field name="name"/>
                 <field name="l_name"/>
                 <field name="age"/>

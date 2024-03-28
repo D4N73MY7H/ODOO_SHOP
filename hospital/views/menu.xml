@@ -9,5 +9,7 @@
             <menuitem id="menu_appointment" name="Appointment" action="action_hospital_appointment" sequence="10"/>
         </menuitem>
 
+        <menuitem id="cancel_appointment" name="Cancel Appointment" action="hospital_cancel_appointment" sequence="20" />
+
     </menuitem>
 </odoo>

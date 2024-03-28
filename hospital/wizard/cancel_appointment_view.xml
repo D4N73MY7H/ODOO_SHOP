@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="cancel_app_view_form" model="ir.ui.view">
+            <field name="name">cancel_app_view_form</field>
+            <field name="model">hospital.cancel.appointment</field>
+            <field name="arch" type="xml">
+                <form string="cancel_app_form">
+                    <grooup>
+                        <group>
+                            <field name="appointment_id"/>
+                        </group>
+                        <group>
+                            <field name="reason"/>
+                        </group>
+                    </grooup>
+                    <footer>
+                        <button name="app_cancel" string="Cancel" type="object" class="btn-primary"/>
+                        <button special="cancel" string="Discard"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="hospital_cancel_appointment" model="ir.actions.act_window">
+            <field name="name">Cancel Appointment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hospital.cancel.appointment</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

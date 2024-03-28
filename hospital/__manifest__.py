@@ -6,9 +6,11 @@
     'sequence': -100,
     'description': """Hospital Module""",
     'category': 'hospital',
-    'depends': ['base', 'mail'],
+    'depends': ['base', 'mail', 'product'],
     'data': [
         'security/ir.model.access.csv',
+        'data/sequence.xml',
+        'wizard/cancel_appointment_view.xml',
         'views/appointment_view.xml',
         'views/patient_view.xml',
         'views/menu.xml'

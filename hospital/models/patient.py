@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 from datetime import date
+import random
 
 class Patient(models.Model):
     _name = 'hospital.patient'
@@ -15,6 +16,7 @@ class Patient(models.Model):
     date_of_birth = fields.Date(string='Date of Birth')
     age = fields.Integer(string='Age', store=True, compute='_compute_age')
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string='Gender')
+    image = fields.Image(string='Image')
     active = fields.Boolean(string='Active', default=True)
 
     _sql_constraints = [
@@ -37,4 +39,4 @@ class Patient(models.Model):
     @api.onchange('ref', 'date_of_birth')
     def onchange_ref(self):
         if self.date_of_birth:
-            self.ref = f"REF{self.age}{self.date_of_birth.year}"
+            self.ref = f"REF{self.age}{self.date_of_birth.year}{random.randint(1,10)}"
