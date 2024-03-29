@@ -9,13 +9,12 @@
         <field name="arch" type="xml">
             <form string="appointment_form">
                 <header>
-<!--     *** statusbar ***                options="{'clickable':'1'}"-->
+<!--     *** statusbar ***                options="{'clickable':'1'}    "-->
                     <field name="state" widget="statusbar" nolabel="1"  statusbar_visible="draft,inConsultation,done"/>
-                    <button name="print_id" type="object" string="Print" />
                     <button name="app_draft" type="object" string="Draft" states="cancel"/>
                     <button name="app_consultation" type="object" string="Consult" class="oe_highlight" states="draft"/>
                     <button name="app_done" type="object" string="Done" class="btn-success" states="inConsultation"/>
-                    <button name="app_cancel" type="object" string="Cancel" class="btn-danger" states="draft,inConsultation" data-hotkey="X"/>
+                    <button name="app_cancel"  type="object" string="Cancel" class="btn-danger" states="draft,inConsultation" context="{'default_appointment_id': active_id}" data-hotkey="X"/>
                 </header>
                 <sheet>
                     <h2 class="w-25 p-3 text-white" style="background-color: #4285F4">Appointment</h2>
@@ -26,7 +25,7 @@
                     </div>
                     <group>
                         <group>
-                            <field name="ref"/>
+                            <field name="ref" force_save="1"/>
                             <field name="patient_id"/>
                             <field name="gender"/>
                         </group>

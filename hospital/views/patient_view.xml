@@ -40,6 +40,7 @@
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <tree string="patient_tree" sample="1">
+                <field name="app_count"/>
                 <field name="name"/>
                 <field name="l_name"/>
                 <field name="age"/>
