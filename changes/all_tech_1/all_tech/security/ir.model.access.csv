@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+all_tech.access_all_tech_employee,access_all_tech_employee,all_tech.model_all_tech_employee,base.group_user,1,1,1,1
+all_tech.access_all_tech_department,access_all_tech_department,all_tech.model_all_tech_department,base.group_user,1,1,1,1
+all_tech.access_all_tech_customer,access_all_tech_customer,all_tech.model_all_tech_customer,base.group_user,1,1,1,1
+all_tech.access_all_tech_category,access_all_tech_category,all_tech.model_all_tech_category,base.group_user,1,1,1,1
+all_tech.access_all_tech_supplier,access_all_tech_supplier,all_tech.model_all_tech_supplier,base.group_user,1,1,1,1
+all_tech.access_all_tech_product,access_all_tech_product,all_tech.model_all_tech_product,base.group_user,1,1,1,1
+all_tech.access_all_tech_status,access_all_tech_status,all_tech.model_all_tech_status,base.group_user,1,1,1,1
+all_tech.access_all_tech_invoice,access_all_tech_invoice,all_tech.model_all_tech_invoice,base.group_user,1,1,1,1
+all_tech.access_all_tech_sale_item,access_all_tech_sale_item,all_tech.model_all_tech_sale_item,base.group_user,1,1,1,1
