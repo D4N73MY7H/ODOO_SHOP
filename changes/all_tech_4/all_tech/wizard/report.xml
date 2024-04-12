@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="employee_invoice_report" model="ir.ui.view">
+            <field name="name">employee_invoice_report</field>
+            <field name="model">all_tech.employee.report</field>
+            <field name="arch" type="xml">
+                <form string="Employee Invoice Report">
+                    <group>
+                        <field name="employee_id"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="till"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                        <button special="cancel" string="Discard"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="all_tech_employee_invoice" model="ir.actions.act_window">
+            <field name="name">Invoice Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">all_tech.employee.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">
+                {'default_employee_id':active_id,
+                'employee_id':active_id}
+            </field>
+        </record>
+
+    </data>
+</odoo>
