@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_report_product_st" model="ir.actions.report">
+            <field name="name">Product Reports</field>
+            <field name="model">all_tech.product.report</field> <!-- Ensure this matches your actual model name -->
+            <field name="report_type">xlsx</field>
+            <field name="report_name">all_tech.product_report</field>
+            <field name="report_file">Product Report</field>
+        </record>
+
+        <template id="product_report">
+            <t t-set="data_report_landscape" t-value="True"/>
+            <t t-set="full_width" t-value="True"/>
+            <t t-call="web.html_container">
+                <h3 t-esc="r_name"/>
+                <div>
+                    <table class="table table-condensed table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity Sold</th>
+                                <th>Quantity in Stock</th>
+                                <th>Total Earnings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="products" t-as="product">
+                                <tr>
+                                    <td>
+                                        <t t-esc="product['product']"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="product['quantity_sold']"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="product['quantity_in_stock']"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="product['total_earnings']"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="pdex_xls_report" model="ir.ui.view">
+            <field name="name">Invoice Report</field>
+            <field name="model">all_tech.pdex</field>
+            <field name="arch" type="xml">
+                <form string="Product Report">
+                    <group>
+                        <group>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="till"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="report_type"/>
+                    </group>
+                    <footer>
+                        <button name="print_pdex_report" string="Print" type="object" class="btn-primary"/>
+                        <button special="cancel" string="Discard"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="all_tech_invoice_report" model="ir.actions.act_window">
+            <field name="name">Invoice Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">all_tech.pdex</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="report_action_pdex_invoice" model="ir.actions.report">
+            <field name="name">Products</field>
+            <field name="model">all_tech.invoice</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">invoice_report_xlsx</field>
+            <field name="report_file">report_invocie</field>
+            <field name="attachment_use" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

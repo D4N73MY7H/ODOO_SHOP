@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="products_reports" model="ir.ui.view">
+            <field name="name">products_reports</field>
+            <field name="model">all_tech.product.report</field>
+            <field name="arch" type="xml">
+                <form string="Product Report">
+                    <group>
+                        <group>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="till"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="report_product" string="Print" type="object" class="btn-primary"/>
+                        <button special="cancel" string="Discard"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="all_tech_product_report" model="ir.actions.act_window">
+            <field name="name">Product Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">all_tech.product.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="report_action_product_st" model="ir.actions.report">
+            <field name="name">Products</field>
+            <field name="model">all_tech.product</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">products_report_xlsx</field>
+            <field name="report_file">report_product</field>
+            <field name="attachment_use" eval="False"/>
+        </record>
+
+    </data>
+</odoo>
