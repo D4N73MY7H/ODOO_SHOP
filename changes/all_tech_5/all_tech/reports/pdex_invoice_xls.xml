@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
-        <record id="action_pdex_report_pdf" model="ir.actions.report">
-            <field name="name">Invoices Report</field>
-            <field name="model">all_tech.invoice</field>
-            <field name="report_type">qweb-pdf</field>
+        <record id="action_pdex_report_xls" model="ir.actions.report">
+            <field name="name">Invoice Reports</field>
+            <field name="model">all_tech.pdex_data</field> <!-- Ensure this matches your actual model name -->
+            <field name="report_type">xlsx</field>
             <field name="report_name">all_tech.pdex_data</field>
-            <field name="report_file">all_tech</field>
+            <field name="report_file">Invoice Report</field>
         </record>
 
         <template id="pdex_data">
@@ -16,7 +15,7 @@
                     <div class="oe_structure"/>
                     <div class="row">
                         <div class="col-xs-12">
-                            <h2 class="text-center">Invoices Report</h2>
+                            <h2>Invoices Report</h2>
                             <table class="table table-condensed table-bordered">
                                 <thead>
                                     <tr>

@@ -34,11 +34,11 @@
             <field name="target">new</field>
         </record>
 
-        <record id="report_action_pdex_invoice" model="ir.actions.report">
-            <field name="name">Products</field>
+        <record id="action_pdex_report_xls" model="ir.actions.report">
+            <field name="name">Invoices Report</field>
             <field name="model">all_tech.invoice</field>
             <field name="report_type">xlsx</field>
-            <field name="report_name">invoice_report_xlsx</field>
+<!--            <field name="report_name">invoice_report_xlsx</field>-->
             <field name="report_file">report_invocie</field>
             <field name="attachment_use" eval="False"/>
         </record>

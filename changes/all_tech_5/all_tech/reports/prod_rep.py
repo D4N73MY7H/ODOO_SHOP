@@ -148,6 +148,9 @@ class ProdReport(models.AbstractModel):
         worksheet.merge_range('A1:D1', 'Products Sold', title_format)
         worksheet.merge_range('A2:D2', f"{date} to {till}", title_format)
 
+        max_invoice_num_length = max(len(invoice.get('num', '')) for invoice in report_data)
+        worksheet.set_column('A:A', max_invoice_num_length + 2)
+
         # Write header labels
         header_labels = ['Product', 'Quantity Sold', 'Quantity In Stock', 'Total Earnings']
         for col, label in enumerate(header_labels):

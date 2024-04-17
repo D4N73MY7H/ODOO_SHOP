@@ -11,6 +11,7 @@
         'data/sequence.xml',
         'reports/prod_rep.xml',
         'reports/pdex_invoice_pdf.xml',
+        'reports/pdex_invoice_xls.xml',
         'wizard/report.xml',
         'wizard/xslx_report.xml',
         'wizard/invoice_pdex_xls.xml',
