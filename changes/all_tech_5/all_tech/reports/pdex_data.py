@@ -39,6 +39,44 @@ class InvoiceReports(models.AbstractModel):
             report_data.append(invoice_data)
         return report_data
 
+    # def get_data(self, data):
+    #     start_date = data.get("date", False)
+    #     end_date = data.get("till", False)
+    #
+    #     invoices = self.env['all_tech.invoice'].read_group([
+    #         ('date', '>=', start_date),
+    #         ('date', '<=', end_date),
+    #         ('type', '=', 'sell'),
+    #     ], ['invoice_num', 'total', 'date', 'sale_items_ids'], ['invoice_num'])
+    #
+    #
+    #     report_data = []
+    #
+    #     for invoice in invoices:
+    #         invoice_data = {
+    #             'num': invoice['invoice_num'],
+    #             'date': invoice.get('date', ''),
+    #             'total': invoice['total'],
+    #             'invoice_lines': []
+    #         }
+    #
+    #         invoice_lines = self.env['all_tech.sale_item'].search([
+    #             ('invoice_id', '=', invoice['invoice_num'])
+    #         ])
+    #
+    #         for line in invoice_lines:
+    #             line_data = {
+    #                 'product': line.product_id.product,
+    #                 'quantity_sold': line.quantity,
+    #                 'price': line.price,
+    #                 'total': line.total_price
+    #             }
+    #             invoice_data['invoice_lines'].append(line_data)
+    #
+    #         report_data.append(invoice_data)
+    #
+    #     return report_data
+
     @api.model
     def _get_report_values(self, docids, data=None):
         report_data = self.get_data(data)
