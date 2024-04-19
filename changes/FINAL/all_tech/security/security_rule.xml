@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+
+        <record id="restrict_sale_invoices" model="ir.rule">
+            <field name="name">Employees Should only see their own invoices</field>
+            <field name="model_id" ref="all_tech.model_all_tech_invoice"/>
+            <field name="domain_force">[('user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('all_tech.tech_employee'))]"/>
+        </record>
+
+
+    </data>
+</odoo>

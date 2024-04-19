@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="email_template_unpaid_invoices" model="mail.template">
+            <field name="name">Unpaid Invoice Reminder</field>
+            <field name="model_id" ref="model_all_tech_customer"/>
+            <field name="subject">Reminder: Unpaid Invoice Notice</field>
+            <field name="email_from">{{user.email}}</field>
+            <field name="email_to">{{ object.email }}</field>
+            <field name="body_html" type="html">
+                <h3>Hi
+                    <t t-out="object.full_name">,</t>
+                </h3>
+                <p>
+                    You have invoices left to pay.
+                </p>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Invoice Number</th>
+                            <th>Total</th>
+                            <th>Due Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="ctx.get('invoices')" t-as="i">
+                            <tr>
+                                <td>
+                                    <t t-out="i['name']"/>
+                                </td>
+                                <td>
+                                    <t t-out="i['date']"/>
+                                </td>
+                                <td>
+                                    <t t-out="i['invoice_number']"/>
+                                </td>
+                                <td>
+                                    <t t-out="i['invoice_total']"/>
+                                </td>
+                                <td>
+                                    <t t-out="i['due_date']"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+                <p>We kindly request that you make a payment at your earliest convenience. </p>
+                <p>Thank you for your business!</p>
+            </field>
+        </record>
+    </data>
+</odoo>

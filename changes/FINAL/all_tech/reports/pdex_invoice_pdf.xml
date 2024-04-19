@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="action_pdex_report_pdf" model="ir.actions.report">
+            <field name="name">Invoices Report</field>
+            <field name="model">all_tech.invoice</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">all_tech.pdex_data</field>
+            <field name="report_file">all_tech</field>
+        </record>
+
+        <template id="pdex_data">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h2 class="text-center">Invoices Report</h2>
+                            <table class="table table-condensed table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>INVOICE</th>
+                                        <th>DATE</th>
+                                        <th colspan="4"></th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="docs" t-as="invoice">
+                                        <tr>
+                                            <td>
+                                                <t t-esc="invoice.get('num')"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="invoice.get('date')"/>
+                                            </td>
+                                            <td colspan="4"></td>
+                                            <td>
+                                                <t t-esc="invoice.get('total')"/>
+                                            </td>
+                                        </tr>
+                                        <tr t-foreach="invoice.get('invoice_lines')" t-as="line">
+                                            <td colspan="2"></td>
+                                            <td>
+                                                <t t-esc="line.get('product')"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="line.get('quantity_sold')"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="line.get('price')"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="line.get('total')"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>
